@@ -39,7 +39,37 @@ public class TestRegres {
         Response response = POST(body, url);
         isStatusCodeValid(response,201);
 
+
     }
+    @Test
+    public void updateUser(){
+        String url = "/users/2";
+        String body = "{\n" +
+                "    \"name\": \"morpheus\",\n" +
+                "    \"job\": \"zion resident\"\n" +
+                "}";
+        Response response = PUT(body, url);
+        isStatusCodeValid(response,200);
+    }
+
+@Test
+    public void updateUserPatch(){
+        String url = "/users/2";
+        String body = "{\n" +
+                "    \"name\": \"morpheus\",\n" +
+                "    \"job\": \"zion resident\"\n" +
+                "}";
+        Response response = PATCH(body, url);
+        isStatusCodeValid(response,200);
+    }
+    @Test
+    public void userDelete(){
+        String url = "/users/2";
+        Response response = DELETE(url);
+        isStatusCodeValid(response,204);
+
+    }
+
 
 
 }
